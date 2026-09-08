@@ -1,0 +1,15 @@
+[tools]
+node = "latest"
+
+[tasks.link]
+description = "Exécute le script global pour symlinker la config nginx locale."
+depends = ["nginx-link"]
+
+[tasks.unlink]
+description = "Exécute le script global pour supprimer le symlink de la config nginx locale."
+depends = ["nginx-unlink"]
+
+[tasks.dev]
+description = "Link nginx + démarre le serveur de dev Astro"
+depends = ["link"]
+run = "npm run dev"
