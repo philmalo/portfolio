@@ -7,5 +7,10 @@ export default defineConfig({
   integrations: [vue()],
   image: {
     domains: ["astro.build"],
+  },
+  vite: {
+    server: {
+      allowedHosts: [".local.cyclonicks.ca"]
+    }
   }
 });

@@ -19,5 +19,9 @@
   "devDependencies": {
     "stylelint": "^16.1.0",
     "stylelint-config-standard": "^36.0.0"
+  },
+  "allowScripts": {
+    "esbuild@0.25.0": true,
+    "sharp@0.33.5": true
   }
 }
