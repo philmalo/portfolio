@@ -10,6 +10,6 @@ description = "Exécute le script global pour supprimer le symlink de la config 
 depends = ["nginx-unlink"]
 
 [tasks.dev]
-description = "Link nginx + démarre le serveur de dev Astro"
-depends = ["link"]
+description = "Link nginx + vérifie caddy + démarre le serveur de dev Astro"
+depends = ["link", "caddy-check"]
 run = "npm run dev"
