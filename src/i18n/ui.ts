@@ -16,6 +16,9 @@ export const ui = {
         'title.demos': 'My projects',
         'title.contact': 'Contact me',
 
+        'og.title.index': 'Philippe Malo, Full Stack Web Developer',
+        'og.description.index': 'Full stack web developer portfolio: projects, background, and contact info.',
+
         'description.index': 'Website in production...',
         'description.home': `There's no place like 127.0.0.1`,
         'description.about': 'Learn more about me and what I have learned so far',
@@ -74,7 +77,7 @@ export const ui = {
         'demo.alt.yodio': "Yodio's logo",
 
         'demo.title.deez': "Final college project",
-        'demo.body.deez': `Project built with<a class="links" href="https://www.linkedin.com/in/louis-roby-619899a5/">Louis Roby</a>and <a class="links" href="https://www.eknox.ca/">Émile Daigneault</a>. A "mobile-first" web app to manage one's wine collection/cellars. Developed with the Laravel framework and using an SQL database. Check out the repo<a class="links" href="https://github.com/philmalo/deez">here</a>.`,
+        'demo.body.deez': `Project built with<a class="links" href="https://www.linkedin.com/in/louis-roby-619899a5/">Louis Roby</a>and <a class="links" href="https://www.linkedin.com/in/%C3%A9mile-daigneault-224225252/">Émile Daigneault</a>. A "mobile-first" web app to manage one's wine collection/cellars. Developed with the Laravel framework and using an SQL database. Check out the repo<a class="links" href="https://github.com/philmalo/deez">here</a>.`,
         'demo.url.deez': "https://deez.philippemalo.dev",
         'demo.alt.deez': "Deez Wines' logo",
 
@@ -102,6 +105,9 @@ export const ui = {
         'title.about': 'À propos de moi',
         'title.demos': 'Mes projets',
         'title.contact': 'Contactez moi',
+
+        'og.title.index': 'Philippe Malo, développeur web full stack',
+        'og.description.index': 'Portfolio de développeur web full stack : projets, parcours et façon de me contacter.',
 
         'description.index': 'Site web en production...',
         'description.home': `Il n'y a pas de place comme 127.0.0.1`,
@@ -167,11 +173,11 @@ export const ui = {
         'demo.alt.yodio': 'logo de yodio.ca',
 
         'demo.title.deez': "Projet final collégial",
-        'demo.body.deez': `Projet développé en collaboration avec <a class="links" href="https://www.linkedin.com/in/louis-roby-619899a5/">Louis Roby</a> et <a class="links" href="https://www.eknox.ca/">Émile Daigneault</a>. Un site "mobile first" dédié à la gestion de collections de bouteilles de vin/celliers. Développé à l'aide de Laravel et avec base de données SQL. Explorez le dépôt <a class="links" href="https://github.com/philmalo/deez">ici</a>.`,
+        'demo.body.deez': `Projet développé en collaboration avec <a class="links" href="https://www.linkedin.com/in/louis-roby-619899a5/">Louis Roby</a> et <a class="links" href="https://www.linkedin.com/in/%C3%A9mile-daigneault-224225252/">Émile Daigneault</a>. Un site "mobile first" dédié à la gestion de collections de bouteilles de vin/celliers. Développé à l'aide de Laravel et avec base de données SQL. Explorez le dépôt <a class="links" href="https://github.com/philmalo/deez">ici</a>.`,
         'demo.url.deez': 'https://deez.philippemalo.dev',
         'demo.alt.deez': 'logo de Deez Wines',
 
-        'demo.title.astro': "Ce portefolio",
+        'demo.title.astro': "Ce portfolio",
         'demo.body.astro': `J'ai profité de l'opportunité en créant ce site à l'aide du framework<a class="links" href="https://astro.build">Astro</a>. vous pouvez consulter mon dépôt github<a class="links" href="https://github.com/philmalo/short-saturn">ici</a>.`,
         'demo.alt.astro': 'logo de mon site',
 
@@ -189,6 +195,8 @@ export const ui = {
     </section>`,
     },
 } as const;
+
+export type TranslationKey = keyof typeof ui[typeof defaultLang];
 
 export const routes = {
     en: {

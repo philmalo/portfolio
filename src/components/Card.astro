@@ -1,14 +1,15 @@
 ---
 import Navigation from "./Navigation.astro";
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+import type { TranslationKey } from '../i18n/ui';
 
 interface CardProps {
-	title?: string;
-	body?: string;
-	link?: string;
+	title: TranslationKey;
+	body: TranslationKey;
+	link?: TranslationKey | '';
 	label?: string;
 	img?: string;
-	alt?: string;
+	alt: TranslationKey;
 }
 interface Props {
 	demos: CardProps[];
@@ -22,7 +23,7 @@ const { demos }: Props = Astro.props;
 {demos.map(site =>(
 	<article>
 		<h2>
-			{t(site.title)}
+		{t(site.title)}
 			<span>&rarr;</span>
 		</h2>
 		<p set:html={t(site.body)}>

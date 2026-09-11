@@ -8,9 +8,18 @@ import { getLangFromUrl } from '../i18n/utils';
 interface Props {
 	title: string;
 	description: string;
+	ogTitle?: string;
+	ogDescription?: string;
+	ogImage?: string;
 }
 
-const { title, description } = Astro.props;
+const {
+	title,
+	description,
+	ogTitle = title,
+	ogDescription = description,
+	ogImage = "https://philippemalo.dev/favicon.svg",
+} = Astro.props;
 const currentYear = new Date().getFullYear();
 const lang = getLangFromUrl(Astro.url);
 ---
@@ -22,6 +31,16 @@ const lang = getLangFromUrl(Astro.url);
 	charset="UTF-8"
 	title={title}
 	description={description}
+	openGraph={{
+		basic: {
+			title: ogTitle,
+			type: "website",
+			image: ogImage,
+		},
+		optional: {
+			description: ogDescription,
+		},
+	}}
 	extend={{
 		meta: [
 			{name:"viewport", content:"width=device-width"},

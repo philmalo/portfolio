@@ -1,12 +1,13 @@
 ---
 import Link from './Link.astro';
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+import type { TranslationKey } from '../i18n/ui';
 
 interface LinkProps {
-    id?: string;
-    href?: string;
-    dataset?: string;
-    label?: string;
+    id: TranslationKey;
+    href: TranslationKey;
+    dataset: TranslationKey;
+    label: TranslationKey;
 }
 interface Props {
     links: LinkProps[];
