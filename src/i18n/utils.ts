@@ -1,3 +1,6 @@
+// TODO(astro): routing i18n fait main ici. Astro a un système natif (config i18n + astro:i18n)
+// qui gère getRelativeLocaleUrl/currentLocale/preferredLocale. Évaluer migration.
+// Doc: https://docs.astro.build/en/guides/internationalization/
 import { ui, defaultLang, showDefaultLang, routes } from './ui';
 
 export function getLangFromUrl(url: URL) {

@@ -1,5 +1,6 @@
 [tools]
 node = "latest"
+bun = "latest"
 
 [tasks.link]
 description = "Exécute le script global pour symlinker la config nginx locale."
@@ -12,4 +13,4 @@ depends = ["nginx-unlink"]
 [tasks.dev]
 description = "Link nginx + vérifie caddy + démarre le serveur de dev Astro"
 depends = ["link", "caddy-check"]
-run = "npm run dev"
+run = "bun run dev"

@@ -1,3 +1,5 @@
+// TODO(astro): texte codé en dur ici. Content Collections (astro:content) donnerait
+// validation de schéma + typage auto. Doc: https://docs.astro.build/en/guides/content-collections/
 export const showDefaultLang = false;
 
 export const languages = {

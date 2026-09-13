@@ -28,6 +28,7 @@ const { demos }: Props = Astro.props;
 		</h2>
 		<p set:html={t(site.body)}>
 		</p>
+		<!-- TODO(astro): remplacer <img> par <Image /> de astro:assets pour optimisation auto (srcset, format, lazy). Doc: https://docs.astro.build/en/guides/images/ -->
 		<img src={site.img} alt={t(site.alt)}>
 		{site.link &&
 		<Navigation links={[

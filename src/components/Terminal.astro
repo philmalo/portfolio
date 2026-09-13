@@ -8,6 +8,9 @@ interface Props {
 const { command, origin, displayContent } = Astro.props;
 ---
 
+<!-- TODO(astro): candidat pour island React (npx astro add react) — démontrer compétence React
+     pour portfolio/emploi visé. Remplacer par Terminal.jsx + client:load.
+     Doc: https://docs.astro.build/en/guides/framework-components/ -->
 <p class="terminal">me@philippemalo.dev:~$ <span class="code"></span></p>
 
 <script define:vars={{command, origin, displayContent}}>
