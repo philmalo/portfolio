@@ -1,3 +1,6 @@
 [build]
   command = "bun install --frozen-lockfile && bun run build"
   publish = "dist"
+
+[build.environment]
+  BUN_FLAGS = "--frozen-lockfile"
