@@ -2,5 +2,5 @@
   command = "bun install && bun run build"
   publish = "dist"
 
-[build.environment]
-  BUN_VERSION = "1.4"
+# [build.environment]
+#   BUN_VERSION = "1.4"
