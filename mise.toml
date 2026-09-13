@@ -1,5 +1,4 @@
 [tools]
-node = "latest"
 bun = "latest"
 
 [tasks.link]
