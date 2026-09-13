@@ -13,3 +13,7 @@ depends = ["nginx-unlink"]
 description = "Link nginx + vérifie caddy + démarre le serveur de dev Astro"
 depends = ["link", "caddy-check"]
 run = "bun run dev"
+
+[tasks.build]
+description = "Installe les dépendances (frozen-lockfile) et build le site"
+run = "bun install --frozen-lockfile && bun run build"
