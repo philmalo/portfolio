@@ -8,7 +8,7 @@ const cardsData = [
         title: "demo.title.deez",
         body: "demo.body.deez",
         label: "nav.explore",
-        img: deez.src,
+        img: deez,
         alt: "demo.alt.deez",
     },
     {
@@ -16,7 +16,7 @@ const cardsData = [
         title: "demo.title.astro",
         body: "demo.body.astro",
         label: "nav.explore",
-        img: placeholder.src,
+        img: placeholder,
         alt: "demo.alt.astro",
     }
 ];

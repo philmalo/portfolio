@@ -1,5 +1,6 @@
 ---
 import Navigation from "./Navigation.astro";
+import { Image } from 'astro:assets';
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
 import type { TranslationKey } from '../i18n/ui';
 
@@ -8,7 +9,7 @@ interface CardProps {
 	body: TranslationKey;
 	link?: TranslationKey | '';
 	label?: string;
-	img?: string;
+	img: ImageMetadata;
 	alt: TranslationKey;
 }
 interface Props {
@@ -28,8 +29,7 @@ const { demos }: Props = Astro.props;
 		</h2>
 		<p set:html={t(site.body)}>
 		</p>
-		<!-- TODO(astro): remplacer <img> par <Image /> de astro:assets pour optimisation auto (srcset, format, lazy). Doc: https://docs.astro.build/en/guides/images/ -->
-		<img src={site.img} alt={t(site.alt)}>
+		<Image src={site.img} alt={t(site.alt)} />
 		{site.link &&
 		<Navigation links={[
 			{ href: t(site.link), dataset: "Explorer", label:"nav.explore"},
