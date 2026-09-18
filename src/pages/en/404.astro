@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import NotFoundTerminal from '../../components/NotFoundTerminal'
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title="404" description="Page Introuvable">
+    <main>
+        <NotFoundTerminal client:load />
+        <section class="page-section 404">
+            <article set:html={t("404.text")}>
+            </article>
+        </section>
+    </main>
+</Layout>
