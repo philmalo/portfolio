@@ -1,8 +1,9 @@
-.home{
+.page-section {
     display: none;
     margin: var(--gutters-main);
 }
 
-.home p {
+.page-section p {
     max-width: 75ch;
 }
+

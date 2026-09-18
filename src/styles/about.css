@@ -1,8 +1,0 @@
-.about{
-    display: none;
-    margin: var(--gutters-main);
-}
-
-.about p {
-    max-width: 75ch;
-}

@@ -1,12 +1,3 @@
-.contact{
-    display: none;
-    margin: var(--gutters-main);
-}
-
-.contact p {
-    max-width: 75ch;
-}
-
 .contact li+li {
     margin-top: 15px;
 }
