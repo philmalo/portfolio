@@ -1,7 +1,24 @@
 {
-  "name": "short-saturn",
+  "name": "portfolio",
+  "private": true,
   "type": "module",
   "version": "0.0.1",
+  "description": "Portfolio et CV en ligne de Philippe Malo",
+  "license": "UNLICENSED",
+  "homepage": "https://philippemalo.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/philmalo/portfolio.git"
+  },
+  "author": {
+    "name": "Philippe Malo",
+    "email": "me@philippemalo.dev",
+    "url": "https://philippemalo.dev"
+  },
+  "bugs": {
+    "email": "me@philippemalo.dev",
+    "url": "https://philippemalo.dev"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
