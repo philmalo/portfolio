@@ -17,3 +17,15 @@ run = "bun run dev"
 [tasks.build]
 description = "Installe les dépendances (frozen-lockfile) et build le site"
 run = "bun install --frozen-lockfile && bun run build"
+
+[tasks.preview]
+description = "démarre une prévisualisation locale du build"
+run = "bun run preview"
+
+[tasks.net-build]
+description = "build via l'outil netlify-cli"
+run = "bunx netlify-cli build"
+
+[tasks.net-preview]
+description = "démarre une prévisualisation locale du build fait par net-build"
+run = "bunx netlify-cli serve"
