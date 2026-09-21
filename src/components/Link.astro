@@ -1,51 +1,70 @@
 ---
 interface Props {
-	id: string;
-	href: string;
-	dataset: string;
-	label: string;
+    id: string;
+    href: string;
+    dataset: string;
+    label: string;
 }
 
 const { id, href, dataset, label } = Astro.props;
 ---
 
 <style>
-	dialog{
-		padding: unset;
-		width: 375px;
-		height: 805px;
-		border: 3px solid var(--terminal-color) ;
-	}
+    dialog{
+        padding: unset;
+        width: 375px;
+        height: 805px;
+        border: 3px solid var(--terminal-color) ;
+    }
+    dialog iframe {
+        border: 0px;
+        height: 800px;
+        width: 375px;
+    }
 </style>
+
 {
-	href == "https://deez.philippemalo.dev" ? (
-		<>
-			<a id="deez" href={href} data-link={dataset}>
-				{label}
-			</a>
-			<dialog>
-				<iframe src={href} frameborder="0" height="800" width="375" />
-			</dialog>
-		</>
-	) : (
-		<a id={id} href={href} data-link={dataset}>
-			{label}
-		</a>
-	)
+    href == "https://deez.philippemalo.dev" ? (
+        <>
+            <a id="deez" href={href} data-link={dataset}>
+                {label}
+            </a>
+            <dialog>
+                <iframe src={href} />
+            </dialog>
+        </>
+    ) : (
+        <a id={id} href={href} data-link={dataset}>
+            {label}
+        </a>
+    )
 }
 
 <script>
-    const explore = document.querySelector('[id="deez"]');
-    const browser = document.querySelector("dialog");
-    const iframe = document.querySelector("iframe");
-    explore.addEventListener("click", (e) => {
-        e.preventDefault();
-        browser.showModal();
-    });
-    browser.addEventListener("click", closeDialog);
-    function closeDialog(e) {
-        if (!iframe.contains(e.target)){
-            browser.close();
+    function setupDeezModal() {
+        const explore = document.querySelector('[id="deez"]');
+        const browser = document.querySelector("dialog");
+        const iframe = document.querySelector("iframe");
+
+        if (!(explore && browser && iframe)) return;
+
+        explore.addEventListener("click", (e) => {
+            e.preventDefault();
+            browser.showModal();
+        });
+
+        browser.addEventListener("click", closeDialog);
+
+        function closeDialog(e: MouseEvent) {
+            if (!iframe!.contains(e.target as Node)){
+                browser!.close();
+            }
         }
     }
+
+    if ((window as any).__deezModalHandler) {
+        document.removeEventListener('astro:page-load', (window as any).__deezModalHandler);
+    }
+    (window as any).__deezModalHandler = setupDeezModal;
+    document.addEventListener('astro:page-load', setupDeezModal);
 </script>
