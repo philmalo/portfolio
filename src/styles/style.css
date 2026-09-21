@@ -1,7 +1,6 @@
 /* TODO(astro): about.css/contact.css/home.css/demos.css chargés globalement sur chaque page.
    Déplacer chacun en <style> scopé dans sa page respective. Doc: https://docs.astro.build/en/guides/styling/#scoped-styles */
 @import "root.css";
-@import "font.css";
 @import "hidden.css";
 @import "crt.css";
 @import "code.css";
@@ -13,7 +12,7 @@
 @import "terminal.css";
 
 html, pre {
-    font-family: "JetBrainsMono", sans-serif;
+    font-family: var(--font-jetbrains-mono);
     color: var(--terminal-color);
 }
 body {
