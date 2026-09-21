@@ -1,0 +1,62 @@
+{
+    "fr": {
+        "languageName": "Français",
+        "nav": {
+            "home": "~",
+            "about": "À propos de moi",
+            "demos": "Démos",
+            "contact": "Me contacter",
+            "explore": "Explorer"
+        },
+        "meta": {
+            "index": {
+                "title": "Production du site en cours...",
+                "description": "Site web en production...",
+                "ogTitle": "Philippe Malo, développeur web full stack",
+                "ogDescription": "Portfolio de développeur web full stack : projets, parcours et façon de me contacter."
+            },
+            "demos": {
+                "title": "Mes projets",
+                "description": "Une liste de tous les projets que j'ai réalisés/auxquels j'ai participé"
+            },
+            "notFound": {
+                "title": "404",
+                "description": "Page introuvable"
+            }
+        },
+        "notFound": {
+            "backLabel": "Retour à l'accueil",
+            "errorMessage": "Aucun fichier ou dossier de ce type"
+        }
+    },
+    "en": {
+        "languageName": "English",
+        "nav": {
+            "home": "~",
+            "about": "About me",
+            "demos": "Demos",
+            "contact": "Contact me",
+            "explore": "Explore"
+        },
+        "meta": {
+            "index": {
+                "title": "Website in production...",
+                "description": "Website in production...",
+                "ogTitle": "Philippe Malo, Full Stack Web Developer",
+                "ogDescription": "Full stack web developer portfolio: projects, background, and contact info."
+            },
+            "demos": {
+                "title": "My projects",
+                "description": "A list of all the projects I have done/participated in."
+            },
+            "notFound": {
+                "title": "404",
+                "description": "Page not found"
+            }
+        },
+        "notFound": {
+            "backLabel": "Back to homepage",
+            "errorMessage": "No such file or directory"
+        }
+    }
+}

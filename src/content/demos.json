@@ -1,0 +1,30 @@
+{
+    "astro": {
+        "order": 1,
+        "img": "../assets/terminal_icon.svg",
+        "link": "",
+        "fr": {
+            "title": "Ce portfolio",
+            "body": "J'ai profité de l'opportunité en créant ce site à l'aide du framework<a class=\"links\" href=\"https://astro.build\">Astro</a>. vous pouvez consulter mon dépôt github<a class=\"links\" href=\"https://github.com/philmalo/short-saturn\">ici</a>.",
+            "alt": "logo de mon site"
+        },
+        "en": {
+            "title": "This portfolio",
+            "body": "I have used this opportunity to learn the<a class=\"links\" href=\"https://astro.build\">Astro</a>framework for deploying static web pages. This is the end result. You can check out my repo<a class=\"links\" href=\"https://github.com/philmalo/short-saturn\">here</a>.",
+            "alt": "My website's logo"
+        }
+    },
+    "deez": {
+        "order": 2,
+        "img" : "../assets/deez_wines.png",
+        "link": "https://deez.philippemalo.dev",
+        "fr": {
+            "title": "Projet final collégial",
+            "body": "Projet développé en collaboration avec <a class=\"links\" href=\"https://www.linkedin.com/in/louis-roby-619899a5/\">Louis Roby</a> et <a class=\"links\" href=\"https://www.linkedin.com/in/%C3%A9mile-daigneault-224225252/\">Émile Daigneault</a>. Un site \"mobile first\" dédié à la gestion de collections de bouteilles de vin/celliers. Développé à l'aide de Laravel et avec base de données SQL. Explorez le dépôt <a class=\"links\" href=\"https://github.com/philmalo/deez\">ici</a>.",
+            "alt": "logo de Deez Wines" },
+        "en": {
+            "title": "Final college project",
+            "body": "Project built with<a class=\"links\" href=\"https://www.linkedin.com/in/louis-roby-619899a5/\">Louis Roby</a>and <a class=\"links\" href=\"https://www.linkedin.com/in/%C3%A9mile-daigneault-224225252/\">Émile Daigneault</a>. A \"mobile-first\" web app to manage one's wine collection/cellars. Developed with the Laravel framework and using an SQL database. Check out the repo<a class=\"links\" href=\"https://github.com/philmalo/deez\">here</a>.",
+            "alt": "Deez Wines' logo" }
+    }
+}

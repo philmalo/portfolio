@@ -1,38 +1,36 @@
 ---
 import Navigation from "./Navigation.astro";
 import { Image } from 'astro:assets';
-import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
-import type { TranslationKey } from '../i18n/ui';
+import type { ImageMetadata } from 'astro';
+import { getEntry, getCollection } from 'astro:content';
+import { getStaticPaths } from '../i18n/utils';
 
-interface CardProps {
-	title: TranslationKey;
-	body: TranslationKey;
-	link?: TranslationKey | '';
-	label?: string;
-	img: ImageMetadata;
-	alt: TranslationKey;
-}
-interface Props {
-	demos: CardProps[];
-}
+export { getStaticPaths }
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const { demos }: Props = Astro.props;
+interface Props {}
+
+const lang = (Astro.currentLocale ?? 'fr') as 'fr' | 'en';
+
+const entries = (await getCollection('demos')).sort((a, b) => a.data.order - b.data.order);
+if (!entries) throw new Error(`Missing demos entry for lang "${lang}"`);
+
+const navData = await getEntry('strings', lang);
+if (!navData) throw new Error(`Missing nav entry for lang "${lang}"`);
+const nav = navData.data.nav
 ---
 
-{demos.map(site =>(
-	<article>
-		<h2>
-		{t(site.title)}
-			<span>&rarr;</span>
-		</h2>
-		<p set:html={t(site.body)}>
-		</p>
-		<Image src={site.img} alt={t(site.alt)} />
-		{site.link &&
-		<Navigation links={[
-			{ href: t(site.link), dataset: "Explorer", label:"nav.explore"},
-		]} /> }
-	</article>
-))}
+{entries.map(entry => {
+	const site = entry.data[lang];
+	return (
+		<article>
+			<h2>{site.title} <span>&rarr;</span></h2>
+			<p set:html={site.body}>
+			</p>
+			<Image src={entry.data.img as ImageMetadata} alt={site.alt} />
+			{entry.data.link &&
+			<Navigation links={[
+				{ id: entry.id, href: entry.data.link, dataset: nav.explore , label: nav.explore },
+			]} /> }
+		</article>
+	)
+})}

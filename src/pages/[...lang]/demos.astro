@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Terminal from '../../components/Terminal.jsx';
+import Result from '../../components/Result.astro';
+import { getEntry } from 'astro:content';
+import { getStaticPaths } from '../../i18n/utils';
+
+export { getStaticPaths }
+
+const lang = Astro.currentLocale ?? 'fr';
+
+const data = await getEntry('strings', lang);
+if (!data) throw new Error(`Missing page entry for lang "${lang}"`)
+const layout = data.data.meta.demos
+---
+
+<Layout title={layout.title} description={layout.description}>
+    <main>
+        <Terminal
+            client:load
+            command="lynx https://philippemalo.dev/"
+            origin=".demos"
+            displayContent="flex"
+        />
+        <Result />
+    </main>
+</Layout>

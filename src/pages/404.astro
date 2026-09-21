@@ -1,18 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import NotFoundTerminal from '../components/NotFoundTerminal'
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import Terminal from '../components/Terminal.jsx'
+import { getEntry } from 'astro:content';
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const lang = Astro.currentLocale ?? 'fr';
+const data = await getEntry('strings', lang);
+if (!data) throw new Error(`Missing strings entry for lang "${lang}"`)
+
+const layout = data.data.meta.notFound;
+const error = data.data.notFound;
 ---
 
-<Layout title="404" description="Page Introuvable">
+<Layout title={layout.title} description={layout.description}>
     <main>
-        <NotFoundTerminal client:load />
-        <section class="page-section 404">
-            <article set:html={t("404.text")}>
-            </article>
-        </section>
+        <Terminal client:load error errorText={error.errorMessage} />
+        <a href={lang === 'fr' ? '/home' : 'en/home'}>{error.backLabel}</a>
     </main>
 </Layout>

@@ -1,3 +1,11 @@
 .contact li+li {
     margin-top: 15px;
 }
+
+.contact li a {
+    border: none;
+    color: var(--links-color);
+}
+
+.contact li a::before { content: "["; }
+.contact li a::after { content: "]"; }

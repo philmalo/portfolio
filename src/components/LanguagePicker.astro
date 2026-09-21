@@ -1,13 +1,18 @@
 ---
-import { languages } from '../i18n/ui';
-import { getLangFromUrl, useTranslations, useTranslatedPath, getRouteFromUrl } from '../i18n/utils';
+import { i18n } from 'astro:config/server';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getEntry } from 'astro:content';
 
-const route = getRouteFromUrl(Astro.url);
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const translatePath = useTranslatedPath(lang);
+const currentPath = Astro.url.pathname.replace(/^\/(en\/)?/, '');
+const entries = (await Promise.all(
+        (i18n?.locales ?? []).map((lang) => {
+            const code = typeof lang === 'string' ? lang : lang.path;
+            return getEntry('strings', code);
+        })
+    )).filter((entry) => entry !== undefined);
+if (!entries) throw new Error('Missing language entries');
 ---
 
-{Object.entries(languages).map(([lang, label]) => (
-    <a href={translatePath(`/${route ? route : ''}`, lang)}>{label}</a>
+{entries.map((entry) =>(
+    <a href={getRelativeLocaleUrl(entry.id, currentPath)}>{entry.data.languageName}</a>
 ))}

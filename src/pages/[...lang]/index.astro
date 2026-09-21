@@ -1,22 +1,33 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import text from "../../assets/loading_en.js";
-import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import Layout from '../../layouts/Layout.astro';
+import textFr from "../../assets/loading_fr.js";
+import textEn from "../../assets/loading_en.js";
+import { getEntry } from 'astro:content';
+import { getStaticPaths } from '../../i18n/utils';
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+export { getStaticPaths }
+
+const lang = Astro.currentLocale ?? 'fr';
+
+const text = lang === 'fr' ? textFr : textEn;
+
+const data = await getEntry('strings', lang);
+if (!data) throw new Error(`Missing strings entry for lang "${lang}"`)
+const layout = data.data.meta.index;
+
+const redirectTo = lang === 'fr' ? `/home` : `${lang}/home`
 ---
 
 <Layout
-    title={t("title.index")}
-    description={t("description.index")}
-    ogTitle={t("og.title.index")}
-    ogDescription={t("og.description.index")}
+    title={layout.title}
+    description={layout.description}
+    ogTitle={layout.ogTitle}
+    ogDescription={layout.ogDescription}
 >
     <pre class="code"></pre>
 </Layout>
 
-<script is:inline define:vars={{ text }}>
+<script is:inline define:vars={{ text, redirectTo }}>
     const firstLoadOutputElement = document.querySelector("pre.code");
 
     document.querySelector("header").classList.add("hidden");
@@ -34,7 +45,7 @@ const t = useTranslations(lang);
                     outputElement.classList.remove("paused");
 
                     document.head.innerHTML +=
-                        '<meta http-equiv="refresh" content="0;url=/en/home" />';
+                        `<meta http-equiv="refresh" content="0;url=${redirectTo}" />`;
                 }
                 else {
                     typeWriter2(outputElement, text, index);
