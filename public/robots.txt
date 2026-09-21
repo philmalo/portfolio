@@ -16,4 +16,4 @@ Disallow: /
 User-agent: voltron
 Disallow: /
 
-Sitemap: https://philippemalo.dev/sitemap.xml
+Sitemap: https://philippemalo.dev/sitemap-index.xml
