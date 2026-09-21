@@ -1,9 +1,10 @@
 ---
 import '../styles/style.css';
+import { Font } from 'astro:assets';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SEO } from 'astro-seo';
-import { getLangFromUrl } from '../i18n/utils';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
 	title: string;
@@ -18,10 +19,11 @@ const {
 	description,
 	ogTitle = title,
 	ogDescription = description,
-	ogImage = "https://philippemalo.dev/favicon.svg",
+	ogImage = "https://philippemalo.dev/terminal_icon.svg",
 } = Astro.props;
+
 const currentYear = new Date().getFullYear();
-const lang = getLangFromUrl(Astro.url);
+const lang = Astro.currentLocale ?? 'fr';
 ---
 
 <!doctype html>
@@ -52,8 +54,8 @@ const lang = getLangFromUrl(Astro.url);
 		],
 	}}
 	/>
-	<!-- TODO(astro): ajouter <ClientRouter /> (astro:transitions) pour navigation animée SPA-like.
-		Doc: https://docs.astro.build/en/guides/view-transitions/ -->
+	<Font cssVariable="--font-jetbrains-mono" preload />
+	<ClientRouter />
 </head>
 <body class="crt">
 	<Header/>
