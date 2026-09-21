@@ -3,9 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Terminal from '../components/Terminal.jsx'
 import { getEntry } from 'astro:content';
 
-const lang = Astro.currentLocale ?? 'fr';
-const data = await getEntry('strings', lang);
-if (!data) throw new Error(`Missing strings entry for lang "${lang}"`)
+const data = await getEntry('strings', 'fr');
+if (!data) throw new Error('Missing strings entry for lang "fr"')
 
 const layout = data.data.meta.notFound;
 const error = data.data.notFound;
@@ -14,6 +13,6 @@ const error = data.data.notFound;
 <Layout title={layout.title} description={layout.description}>
     <main>
         <Terminal client:load error errorText={error.errorMessage} />
-        <a href={lang === 'fr' ? '/home' : '/en/home'}>{error.backLabel}</a>
+        <a href="home">{error.backLabel}</a>
     </main>
 </Layout>
