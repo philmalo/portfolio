@@ -20,7 +20,7 @@ const text = `<!DOCTYPE html>
                 <a href="/contact">Me contacter</a>
             </nav>
             <nav>
-                <a href="/en/home>English</a>"
+                <a href="/en/home">English</a>
                 <a href="/home">Français</a>
             </nav>
         </div>

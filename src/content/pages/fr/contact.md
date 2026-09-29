@@ -1,17 +1,17 @@
 ---
-title: 'Contact me'
-description: 'The ways you can contact me'
+title: Contactez-moi
+description: Les moyens de me contacter
 ---
 
 <section>
 
-## Contact me
+## Me contacter
 
 </section>
 
 <section>
 
-Here are some of the ways you can contact me
+Voici quelques moyens pour entrer en contact avec moi :
 
 - Email: [me@philippemalo.dev](mailto:me@philippemalo.dev)
 - LinkedIn: [www.linkedin.com/in/philmalo](https://www.linkedin.com/in/philmalo)

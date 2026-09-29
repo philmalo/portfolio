@@ -1,9 +1,10 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import textFr from "../../assets/loading_fr.js";
-import textEn from "../../assets/loading_en.js";
+import Layout from '@layouts/Layout.astro';
+import textFr from "@assets/loading_fr.js";
+import textEn from "@assets/loading_en.js";
 import { getEntry } from 'astro:content';
-import { getStaticPaths } from '../../i18n/utils';
+import { getStaticPaths } from '@i18n/utils';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 export { getStaticPaths }
 
@@ -15,11 +16,11 @@ const data = await getEntry('strings', lang);
 if (!data) throw new Error(`Missing strings entry for lang "${lang}"`)
 const layout = data.data.meta.index;
 
-const redirectTo = lang === 'fr' ? `/home` : `${lang}/home`
+const redirectTo = getRelativeLocaleUrl(lang, 'home')
 ---
 
 <Layout
-    title={layout.title}
+    title={layout.ogTitle}
     description={layout.description}
     ogTitle={layout.ogTitle}
     ogDescription={layout.ogDescription}
@@ -27,7 +28,8 @@ const redirectTo = lang === 'fr' ? `/home` : `${lang}/home`
     <pre class="code"></pre>
 </Layout>
 
-<script is:inline define:vars={{ text, redirectTo }}>
+<script is:inline define:vars={{ text, redirectTo, loadingTitle: layout.title }}>
+    document.title = loadingTitle;
     const firstLoadOutputElement = document.querySelector("pre.code");
 
     document.querySelector("header").classList.add("hidden");

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Typewriter from './Typewriter';
+import Typewriter from '@components/Typewriter';
 
 export default function Terminal({ command = '', origin = '', displayContent = '', error = false, errorText = '' }) {
     const [path, setPath] = useState('');

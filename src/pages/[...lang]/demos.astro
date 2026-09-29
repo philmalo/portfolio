@@ -1,9 +1,10 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Terminal from '../../components/Terminal.jsx';
-import Result from '../../components/Result.astro';
+import Layout from '@layouts/Layout.astro';
+import Terminal from '@components/Terminal.jsx';
+import Result from '@components/Result.astro';
 import { getEntry } from 'astro:content';
-import { getStaticPaths } from '../../i18n/utils';
+import { getStaticPaths } from '@i18n/utils';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 export { getStaticPaths }
 
@@ -18,7 +19,7 @@ const layout = data.data.meta.demos
     <main>
         <Terminal
             client:load
-            command="lynx https://philippemalo.dev/"
+            command={`ls ${getRelativeLocaleUrl(lang, 'demos')}`}
             origin=".demos"
             displayContent="flex"
         />

@@ -1,8 +1,8 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Terminal from '../../components/Terminal.jsx';
+import Layout from '@layouts/Layout.astro';
+import Terminal from '@components/Terminal.jsx';
 import { getEntry, render } from 'astro:content';
-import { getStaticPaths } from '../../i18n/utils';
+import { getStaticPaths } from '@i18n/utils';
 
 export { getStaticPaths }
 
@@ -16,7 +16,7 @@ const { Content } = await render(entry);
     <main>
 		<Terminal
             client:load
-            command="npm view npm contributors"
+            command="bun pm pkg get author"
             origin=".contact"
             displayContent="block"
         />

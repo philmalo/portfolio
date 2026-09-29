@@ -1,14 +1,15 @@
 ---
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { getEntry } from 'astro:content';
-import LanguagePicker from './LanguagePicker.astro';
-import Navigation from './Navigation.astro';
+import LanguagePicker from '@components/LanguagePicker.astro';
+import Navigation from '@components/Navigation.astro';
 
 const lang = Astro.currentLocale ?? 'fr';
 const data = await getEntry('strings', lang);
 if (!data) throw new Error(`Missing strings entry for lang "${lang}"`)
 
 const strings = data.data.nav
+const demosUrl = getRelativeLocaleUrl(lang, 'demos'); // "/demos/" ou "/en/demos/"
 ---
 
 <header>
@@ -21,8 +22,8 @@ const strings = data.data.nav
             <Navigation links={[
             { id: "home", href: getRelativeLocaleUrl(lang, 'home'), dataset: "~", label: strings.home },
             { id: "about", href: getRelativeLocaleUrl(lang, 'about'), dataset: "whoami", label: strings.about },
-            { id: "demos", href: getRelativeLocaleUrl(lang, 'demos'), dataset: "lynx https://philippemalo.dev/", label: strings.demos },
-            { id: "contact", href: getRelativeLocaleUrl(lang, 'contact'), dataset: "npm view npm contributors", label: strings.contact },
+            { id: "demos", href: getRelativeLocaleUrl(lang, 'demos'), dataset: `ls ${demosUrl}`, label: strings.demos },
+            { id: "contact", href: getRelativeLocaleUrl(lang, 'contact'), dataset: "bun pm pkg get author", label: strings.contact },
             ]} />
         </nav>
         <nav class="lang">

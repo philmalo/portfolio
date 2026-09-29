@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <title>CycloTrix</title>
+  <defs>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8a8a8a"/>
+      <stop offset="1" stop-color="#3d3d3d"/>
+    </linearGradient>
+    <filter id="drop" x="-10%" y="-10%" width="120%" height="125%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <clipPath id="body">
+      <rect x="30" y="26" width="452" height="452" rx="84"/>
+    </clipPath>
+  </defs>
+
+  <!-- ombre portée sous l'icône -->
+  <rect x="26" y="34" width="460" height="460" rx="88" fill="#000" opacity=".45" filter="url(#drop)"/>
+  <!-- rebord gris -->
+  <rect x="24" y="20" width="464" height="464" rx="90" fill="url(#rim)"/>
+  <!-- surface -->
+  <rect x="30" y="26" width="452" height="452" rx="84" fill="#2e3436"/>
+
+  <!-- ombre longue à 45°, comme l'icône du terminal -->
+  <g clip-path="url(#body)">
+    <polygon points="140,354 362,132 1000,770 778,992" fill="#000" opacity=".3"/>
+  </g>
+
+  <!-- flèches en cycle -->
+  <g fill="none" stroke="#73d216" stroke-width="34" stroke-linecap="butt">
+    <path d="M 118 230 A 140 140 0 0 1 362 170"/>
+    <path d="M 394 274 A 140 140 0 0 1 150 334"/>
+  </g>
+  <g fill="#73d216">
+    <path d="M 402 128 L 398 226 L 312 186 Z"/>
+    <path d="M 110 376 L 114 278 L 200 318 Z"/>
+  </g>
+
+  <!-- cadenas -->
+  <path d="M 222 244 V 220 a 34 34 0 0 1 68 0 V 244" fill="none" stroke="#73d216" stroke-width="20"/>
+  <rect x="198" y="240" width="116" height="86" rx="6" fill="#73d216"/>
+  <rect x="248" y="266" width="16" height="34" fill="#2e3436"/>
+</svg>
