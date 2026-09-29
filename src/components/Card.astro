@@ -27,8 +27,40 @@ const nav = navData.data.nav
 					<p class="stack">{entry.data.stack.join(' · ')}</p>
 					<p class="actions">
 							{entry.data.repo && <a class="links" href={entry.data.repo}>source</a>}
-							{entry.data.link && <a class="links" href={entry.data.link}>{nav.explore.toLowerCase()}</a>}
+							{entry.data.link && (
+								entry.data.modal ? (
+									<>
+										<a class="links" href={entry.data.link} data-modal={`modal-${entry.id.replace('/', '-')}`}>
+											{nav.explore.toLowerCase()}
+										</a>
+										<dialog id={`modal-${entry.id.replace('/', '-')}`} class="demo-modal">
+											<iframe src={entry.data.link} title={entry.data.title} loading="lazy"></iframe>
+										</dialog>
+									</>
+								) : (
+									<a class="links" href={entry.data.link}>{nav.explore.toLowerCase()}</a>
+								)
+							)}
 					</p>
 			</footer>
 	</article>
 ))}
+
+<script>
+	function setupDemoModals() {
+		document.querySelectorAll<HTMLAnchorElement>('a[data-modal]').forEach(link => {
+			const dialog = document.getElementById(link.dataset.modal!) as HTMLDialogElement | null;
+			if (!dialog) return;
+
+			link.addEventListener('click', e => {
+				e.preventDefault();
+				dialog.showModal();
+			});
+			// clic sur le fond : la cible est le <dialog> lui-même, pas l'iframe
+			dialog.addEventListener('click', e => {
+				if (e.target === dialog) dialog.close();
+			});
+		});
+	}
+	document.addEventListener('astro:page-load', setupDemoModals);
+</script>

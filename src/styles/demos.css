@@ -55,6 +55,21 @@
     gap: 2ch;
 }
 
+.demo-modal {
+    padding: 0;
+    border: 3px solid var(--terminal-color);
+    width: min(375px, 95vw);
+    height: min(805px, 90dvh);
+}
+.demo-modal iframe {
+    border: 0;
+    width: 100%;
+    height: 100%;
+}
+.demo-modal::backdrop {
+    background: rgb(0 0 0 / 0.7);
+}
+
 @media (max-width: 40rem) {
     .demos article {
         grid-template-columns: 1fr;

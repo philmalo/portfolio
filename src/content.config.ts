@@ -20,6 +20,7 @@ const demos =  defineCollection({
         stack: z.array(z.string()).default([]),
         repo: z.url({ protocol: /^https$/ }).optional(),
         link: z.url({ protocol: /^https$/ }).optional(),
+        modal: z.boolean().default(false),
     })
 });
 

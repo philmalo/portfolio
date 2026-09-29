@@ -6,6 +6,7 @@ alt: logo de Deez Wines
 stack: [Laravel, PHP, MySQL, Blade, Laravel Scout, Guzzle, DomCrawler]
 repo: https://github.com/philmalo/deez
 link: https://deez.philippemalo.dev
+modal: true
 ---
 
 Application web « mobile first » de gestion de celliers, réalisée en équipe avec
